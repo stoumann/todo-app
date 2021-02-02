@@ -1,5 +1,5 @@
 <template>
-    <button :type="type" :class="[btnClass, typeClass, disabledClass]" class="border border-solid border-transparent p-2 px-4 rounded focus:outline-none focus:shadow-focus leading-none" :disabled="disabled" :id="id" @click="$emit('btn-click');">
+    <button :type="type" :class="[btnClass, typeClass, disabledClass]" class="border border-solid border-transparent p-2 px-4 rounded focus:outline-none focus:ring ring-light-blue-200 leading-none" :disabled="disabled" :id="id" @click="$emit('btn-click');">
         <slot></slot>
     </button>
 </template>
@@ -46,7 +46,7 @@
                     break;
 
                     case 'secondary':
-                        return 'bg-light-blue-800 hover:bg-light-blue-900 focus:bg-light-blue-700 text-white';
+                        return 'bg-cyan-800 hover:bg-cyan-900 focus:bg-cyan-700 text-white';
                     break;
 
                     case 'success':

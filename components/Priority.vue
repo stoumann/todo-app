@@ -6,7 +6,7 @@
                 :key="priority.name" 
                 @click.stop="selectPriority(priority)"
                 :class="{'shadow-inner bg-gray-100': priority.name === priorityData}" 
-                class="flex-1 p-3 px-4 focus:outline-none flex items-center justify-center space-x-2"
+                class="flex-1 p-3 px-4 ring-inset focus:outline-none focus:ring ring-light-blue-200 flex items-center justify-center space-x-2"
             >
                 <div>
                     <svg class="h-5 w-5" :class="priority.textColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -54,6 +54,13 @@
                 required: true,
             },
         },
+        data () {
+            return {
+                isOpen: false,
+                priorityList: priorities,
+                priorityData: this.selectedPriority
+            }
+        },
         directives: {
             clickOutside: vClickOutside.directive
         },
@@ -70,13 +77,6 @@
                 this.closePriorityList();
             }
         },
-        data () {
-            return {
-                isOpen: false,
-                priorityList: priorities,
-                priorityData: this.selectedPriority
-            }
-        }
     }
 </script>
 

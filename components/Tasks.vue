@@ -13,7 +13,7 @@
         >
             <div v-for="(task, index) in realValue" :key="index">
                 <task :task="task" :child="child" />
-                <div :class="{'bg-gray-200 p-4 rounded-b-lg shadow-inner': !child}" v-if="task.tasks.length > 0">
+                <div :class="{'bg-gray-200 p-2 lg:p-4 rounded-b-lg shadow-inner': !child}" v-if="task.tasks.length > 0">
                     <tasks :class="{'': task.tasks.length > 0}" :list="task.tasks" :child="true" @change="onChange" :level="level+1"/>
                 </div>
             </div>
