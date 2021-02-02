@@ -1,7 +1,7 @@
 <template>
     <modal v-if="openEditTask && task" @close="closeModal" :header-text="headerText" :modal-container-class="parentTask ? 'lg:py-16 lg:px-8' : ''">
         <div slot="body" class="flex flex-col lg:flex-row lg:items-stretch w-full h-full">
-            <form @submit.prevent="saveTask()" class="px-8 space-y-10 flex-1">
+            <div class="px-8 space-y-10 flex-1">
                 <div>
                     <priority :selectedPriority="task.priority" @priority-selected="setSelectedPriority" type="buttons"></priority>
                 </div>
@@ -14,7 +14,7 @@
                 <div>
                     <input-textarea v-model="task.note" id="task-note" input-class="w-full h-full" input-container-class="h-full" container-class="h-full" placeholder="Notes" />
                 </div>
-            </form>
+            </div>
             <div v-if="!isSubTask && !parentTask && task.createdAt" class="px-8 flex-1 h-full mt-6 lg:mt-0 lg:pl-0">
                 <div class="p-8 w-full h-full bg-gray-100 rounded-lg" v-if="task.tasks.length > 0">
                     <div v-for="(subTask, index) in task.tasks" :key="index">
